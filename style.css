@@ -1,0 +1,226 @@
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e1bee7; /* Light purple background */
+    margin: 0;
+    padding: 0;
+}
+
+.quiz-container {
+    background-color: #ffffff; /* White background for quiz container */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 25px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    text-align: center;
+    color: #8e24aa; /* Deep purple color */
+    font-size: 2.4rem; /* Increased font size */
+    margin-bottom: 15px;
+    animation: slideDown 0.7s ease-in-out;
+}
+
+.question {
+    margin-bottom: 15px;
+    animation: popIn 0.6s ease-in-out;
+}
+
+.question h3 {
+    font-size: 1.1rem; /* Increased font size */
+    color: #4a148c; /* Dark purple */
+    margin-bottom: 10px;
+}
+
+/* Updated Styles for Options */
+/* Updated Styles for Options */
+.options {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.options label {
+    font-size: 1.2rem;
+    color: #4a148c; /* Dark purple */
+    padding: 14px;
+    margin-bottom: 5px; /* Reduced margin */
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.options label:hover {
+    background-color: #ba68c8; /* Warm hover effect */
+    border-color: #8e24aa; /* Deep purple border */
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+/* Glowing background effect on hover */
+.options label:hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(186, 104, 220, 0.3); /* Light purple glow */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+}
+
+/* Highlight selected option */
+.options input[type="radio"]:checked + label {
+    background-color: #8e24aa; /* Selected deep purple */
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+/* Updated radio button styles */
+.options input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Hide other options when one is hovered */
+.options label:hover ~ label {
+    transform: scale(0.95);
+    opacity: 0.6;
+}
+
+/* Submit button styles */
+.submit-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+button {
+    padding: 12px 24px; /* Increased padding */
+    font-size: 1.2rem; /* Increased font size */
+    color: #ffffff;
+    background-color: #8e24aa; /* Deep purple background */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-in-out; /* Animation for button */
+}
+
+button:hover {
+    background-color: #7b1fa2; /* Darker shade on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* For radio inputs effect */
+input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="radio"]::before {
+    content: "";
+    display: inline-block;
+    width: 20px; /* Increased size */
+    height: 20px; /* Increased size */
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: 2px solid #8e24aa; /* Deep purple border */
+    transition: background-color 0.3s ease;
+}
+
+input[type="radio"]:checked::before {
+    background-color: #8e24aa; /* Deep purple for checked */
+}
+
+input[type="radio"]:hover::before {
+    background-color: #e1bee7; /* Light purple on hover */
+}
+.results-container {
+    background-color: #ffffff; /* White background for results */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 25px;
+    animation: fadeIn 0.5s ease-in-out; /* Animation for results */
+}
+
+.selected-option {
+    animation: highlight 0.5s ease forwards; /* Highlight animation */
+}
+
+@keyframes highlight {
+    0% {
+        background-color: #8e24aa; /* Highlight color */
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        background-color: #ffffff; /* Revert to original */
+        transform: scale(1);
+    }
+}
